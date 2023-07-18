@@ -11,7 +11,9 @@
         <p>{{outputGoal()}} <a v-bind:href="Link">KEK</a></p>
     </section>
 
-
+    <section id="test-area">
+        <input type="text" value="" v-on:input="inputAlert($event)">
+    </section>
 
     <script src="https://unpkg.com/vue@next"></script>
     <script src="js/script.js"></script>

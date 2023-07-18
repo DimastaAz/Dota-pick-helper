@@ -17,5 +17,18 @@ const app = Vue.createApp({
         }
     }
 });
-
 app.mount('#user-goal');
+
+const app2 = Vue.createApp({
+    data() {
+        return {
+            a: 1
+        }
+    },
+    methods: {
+        inputAlert(event) {
+            console.log(event);
+        }
+    }
+});
+app2.mount('#test-area');
