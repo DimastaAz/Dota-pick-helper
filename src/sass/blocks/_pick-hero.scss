@@ -1,0 +1,60 @@
+.pick-hero {
+    background-color: $plug-color2;
+    min-height: 100px;
+    padding: 15px 40px 15px 40px;
+    &__wrapper {
+        margin: 0 auto;
+        background-color: $plug-color3;
+        min-height: 100px;
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 15px;
+        &__heroes {
+            background-color: $plug-color4;
+            width: 43%;
+            height: 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items:center;
+            padding: 0 20px 0 20px;
+            &__radiant {
+                width: 20%;
+                height: 90px;
+                background-color: $plug-color4;
+                transform: skew(-25deg);
+                border: 2px solid black;
+            }
+            &__dire {
+                width: 20%;
+                height: 90px;
+                background-color: $plug-color4;
+                transform: skew(25deg);
+                border: 2px solid black;
+            }
+        }
+        &__vs {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 70px;
+            background-color: $plug-color1;
+            width: 10%;
+            height: 100px;
+        }
+    }
+    &__search {
+        height: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $plug-color1;
+        input {
+            text-align: center;
+            font-size: 30px;
+            width: 500px;
+            height: 100%;
+            border-radius: 30px;
+            border: 2px solid black;
+        }
+    }
+}
