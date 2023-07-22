@@ -116,7 +116,7 @@ const BodyApp = Vue.createApp({
             console.log(this.heroes);
         },
     },
-    mounted() {
+    mounted() { //hook
         document.addEventListener( "keydown", this.onKeydown );
     }
 });
