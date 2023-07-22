@@ -6,7 +6,7 @@
     <title>Dota Pick Helper</title>
     <link rel="stylesheet" href="css/style.min.css">
 </head>
-<body>
+<body id="body">
     <section id="user-goal">
         <p>{{outputGoal()}} <a v-bind:href="Link">KEK</a></p>
     </section>
@@ -19,7 +19,7 @@
         HEADER
     </header>
 
-    <section class="pick-hero">
+    <section id="pick-hero" class="pick-hero">
         <div class="pick-hero__wrapper">
             <div class="pick-hero__wrapper__heroes">
                 <div class="pick-hero__wrapper__heroes__radiant"></div>
@@ -28,7 +28,7 @@
                 <div class="pick-hero__wrapper__heroes__radiant"></div>
                 <div class="pick-hero__wrapper__heroes__radiant"></div>
             </div>
-            <div class="pick-hero__wrapper__vs">VS</div>
+            <div class="pick-hero__wrapper__vs" v-on:click="calculateRating()">VS</div>
             <div class="pick-hero__wrapper__heroes">
                 <div class="pick-hero__wrapper__heroes__dire"></div>
                 <div class="pick-hero__wrapper__heroes__dire"></div>
@@ -38,14 +38,16 @@
             </div>
         </div>
         <div class="pick-hero__search">
-            <input type="text">
+            <input id="pick-hero__search__input" type="search" v-model="inputValue" readonly>
         </div>
     </section>
 
-    <section class="list-hero">
+    <section id="list-hero" class="list-hero">
         <div class="list-hero__grid">
-            <div class="list-hero__grid__item">
-                <img src="icons/heroes/abaddon-icon.jpg" alt="abaddon-icon">
+            <div v-for="(value, name) in heroes" class="list-hero__grid__item">
+                <img v-bind:src="value.url" v-bind:alt="name">
+                <div class="list-hero__grid__item__rating">{{ value.rating }}</div>
+                <div class="list-hero__grid__item__gray-panel" v-bind:class="value.grayPanel"></div>
                 <div class="list-hero__grid__item__choice-menu-radiant">
                     <button>111</button>
                     <button>222</button>
@@ -61,13 +63,6 @@
                     <button>555</button>
                 </div>
             </div>
-            <div class="list-hero__grid__item">1</div>
-            <div class="list-hero__grid__item">1</div>
-            <div class="list-hero__grid__item">1</div>
-            <div class="list-hero__grid__item">1</div>
-            <div class="list-hero__grid__item">1</div>
-            <div class="list-hero__grid__item">1</div>
-            <div class="list-hero__grid__item">1</div>
         </div>
     </section>
 
