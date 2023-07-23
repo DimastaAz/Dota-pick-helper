@@ -44,10 +44,9 @@
     
     <section id="list-hero" class="list-hero">
         <div class="list-hero__grid">
-            <div v-for="(value, name) in heroes" class="list-hero__grid__item">
+            <div v-for="(value, name) in heroes" class="list-hero__grid__item" v-bind:class="value.disabled">
                 <img v-bind:src="value.url" v-bind:alt="name">
                 <div class="list-hero__grid__item__rating">{{ value.rating }}</div>
-                <div class="list-hero__grid__item__gray-panel" v-bind:class="value.grayPanel"></div>
                 <div class="list-hero__grid__item__choice-menu-radiant">
                     <button>111</button>
                     <button>222</button>
