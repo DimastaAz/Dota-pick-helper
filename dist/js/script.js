@@ -37,7 +37,6 @@ const BodyApp = Vue.createApp({
     data() {
     return {
         inputValue: '',
-        choosenHeroId: '',
         heroes: { 
             'abaddon': {
                 url:'icons/heroes/abaddon-icon.jpg',
@@ -918,7 +917,7 @@ const BodyApp = Vue.createApp({
                     this.inputValue = this.inputValue + event.key;
                 } else {
                     this.inputValue = this.inputValue.slice(0, -1);
-                }
+                }р
             }
             //searching and hide heroes without same latters in names
             for (hero in this.heroes) {
@@ -935,76 +934,9 @@ const BodyApp = Vue.createApp({
             }
             console.log(this.heroes);
         },
-        //old CHOOSE version
-        // dragAndDrop(event) {
-        //     event.preventDefault();
-        //     if (event.target.className == 'list-hero__grid__item__rating') {
-        //         const item = event.srcElement.offsetParent;
-        //         item.style.position = 'absolute';
-        //         function moveAt(e) {
-        //             item.style.left = e.pageX - item.offsetWidth / 2 + 'px';
-        //             item.style.top = e.pageY - item.offsetHeight / 2 + 'px';
-        //             for (let i = 0; i < 5; i++) {
-        //                 if ((document.getElementsByClassName('pick-hero__wrapper__heroes__radiant')[i].offsetLeft < e.pageX)&&(document.getElementsByClassName('pick-hero__wrapper__heroes__radiant')[i].offsetLeft + document.getElementsByClassName('pick-hero__wrapper__heroes__radiant')[i].offsetWidth > e.pageX)&&(document.getElementsByClassName('pick-hero__wrapper__heroes__radiant')[i].offsetTop < e.pageY)&&(document.getElementsByClassName('pick-hero__wrapper__heroes__radiant')[i].offsetTop + document.getElementsByClassName('pick-hero__wrapper__heroes__radiant')[i].offsetHeight > e.pageY)) {
-        //                     console.log('yes');
-        //                 }
-        //             }
-        //         }
-        //         document.addEventListener( "mousemove", moveAt);
-        //         document.addEventListener( "mouseup", function() {
-        //             document.removeEventListener( "mousemove", moveAt);
-        //         });
-        //     }
-        // },
-
-        //new CHOOSE version #1 
-        onMouseEnter(event) {
-            event.srcElement.style.width = 75 * 1.15 + 'px';
-            event.srcElement.style.height = 100 * 1.15 + 'px';
-        },
-        onMouseLeave(event) {
-            // if (event.srcElement.id == this.choosenHeroId) {
-
-            // }else {  
-                event.srcElement.style.width = 75 + 'px';
-                event.srcElement.style.height = 100 + 'px';
-            // }
-        },
-        onHeroChoose(e) {
-            if (this.choosenHeroId == e.target.offsetParent.id) {
-                for (hero in this.heroes) {
-                    document.getElementById(hero).childNodes[1].style.backgroundColor = 'unset';
-                }
-                this.choosenHeroId = '';
-                return;
-            }
-            this.choosenHeroId = e.target.offsetParent.id;
-            if (this.choosenHeroId != ''){  
-                for (hero in this.heroes) {
-                    if (hero == this.choosenHeroId) {
-                        document.getElementById(hero).childNodes[1].style.backgroundColor = 'unset';
-                    }
-                }
-            }
-            for (hero in this.heroes) {
-                if (hero != this.choosenHeroId) {
-                    document.getElementById(hero).childNodes[1].style.backgroundColor = 'black';
-                }
-            }
-            console.log(this.choosenHeroId);
-        },
-        returnHeroImg(id) {
-            return this.heroes.id.url;
-        },
-        
     },
     mounted() { //hook
         document.addEventListener( "keydown", this.onKeydown );
-        //old CHOOSE version
-        // document.addEventListener( "mousedown", this.dragAndDrop );
-
-        //new CHOOSE version #1
-
     }
 });
 BodyApp.mount('#body');

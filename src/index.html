@@ -22,19 +22,39 @@
     <section id="pick-hero" class="pick-hero">
         <div class="pick-hero__wrapper">
             <div class="pick-hero__wrapper__heroes">
-                <div class="pick-hero__wrapper__heroes__radiant"></div>
-                <div class="pick-hero__wrapper__heroes__radiant"></div>
-                <div class="pick-hero__wrapper__heroes__radiant"></div>
-                <div class="pick-hero__wrapper__heroes__radiant"></div>
-                <div class="pick-hero__wrapper__heroes__radiant"></div>
+                <div class="pick-hero__wrapper__heroes__radiant">
+                    <img v-bind:src=""> <!-- 'icons/heroes/' + choosenHeroId + '-icon.jpg' -->
+                </div>
+                <div class="pick-hero__wrapper__heroes__radiant">
+                    <img v-bind:src="">
+                </div>
+                <div class="pick-hero__wrapper__heroes__radiant">
+                    <img v-bind:src="">
+                </div>
+                <div class="pick-hero__wrapper__heroes__radiant">
+                    <img v-bind:src="">
+                </div>
+                <div class="pick-hero__wrapper__heroes__radiant">
+                    <img v-bind:src="">
+                </div>
             </div>
             <div class="pick-hero__wrapper__vs" v-on:click="calculateRating()">VS</div>
             <div class="pick-hero__wrapper__heroes">
-                <div class="pick-hero__wrapper__heroes__dire"></div>
-                <div class="pick-hero__wrapper__heroes__dire"></div>
-                <div class="pick-hero__wrapper__heroes__dire"></div>
-                <div class="pick-hero__wrapper__heroes__dire"></div>
-                <div class="pick-hero__wrapper__heroes__dire"></div>
+                <div class="pick-hero__wrapper__heroes__dire">
+                    <img v-bind:src="">
+                </div>
+                <div class="pick-hero__wrapper__heroes__dire">
+                    <img v-bind:src="">
+                </div>
+                <div class="pick-hero__wrapper__heroes__dire">
+                    <img v-bind:src="">
+                </div>
+                <div class="pick-hero__wrapper__heroes__dire">
+                    <img v-bind:src="">
+                </div>
+                <div class="pick-hero__wrapper__heroes__dire">
+                    <img v-bind:src="">
+                </div>
             </div>
         </div>
         <div class="pick-hero__search">
@@ -44,7 +64,7 @@
     
     <section id="list-hero" class="list-hero">
         <div class="list-hero__grid">
-            <div v-for="(value, name) in heroes" class="list-hero__grid__item" v-bind:class="value.disabled">
+            <div v-for="(value, name) in heroes" class="list-hero__grid__item" v-bind:id="name" v-bind:class="value.disabled" v-on:click="onHeroChoose($event)" v-on:mouseleave="onMouseLeave($event)" v-on:mouseenter="onMouseEnter($event)">
                 <img v-bind:src="value.url" v-bind:alt="name">
                 <div class="list-hero__grid__item__rating">{{ value.rating }}</div>
                 <div class="list-hero__grid__item__choice-menu-radiant">
